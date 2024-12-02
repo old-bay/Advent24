@@ -7,35 +7,47 @@ import kotlin.math.abs;
 
 fun main() {
   
-  val fileName = "input.txt";
+  // static file input, may be replaced with a prompt
+  val input = "input.txt";
 
+  // multable list vals for input, length initialised
   val list1 = mutableListOf<Int>();
   val list2 = mutableListOf<Int>();
+  var length = 0;
 
-  File(fileName).forEachLine { line ->
+  // input taken from file, length counted from lines
+  // later lists will be static arrays
+  File(input).forEachLine { line ->
     val (num1, num2) = line.split("   ").map { it.toInt() };
     list1.add(num1);
     list2.add(num2);
+    length++;
   }
   
+  // sort the lists from least to greatest
   list1.sort();
   list2.sort();
 
-  val list = mutableListOf<Int>();
-  if(list1.size == list2.size);
-    for(i in 0..(list1.size - 1)) {
-      list.add(abs(list1[i]-list2[i]));
-    }
+  // make new array of the least absolute differences
+  val list = Array<Int>(length) { 0 };
+  list.forEachIndexed { i, item ->
+    list[i] = abs(list1[i] - list2[i]);
+  }
   
+  // pt1 sum of least absolute differences
   val diffSum = list.sum();
   println("List difference sum: $diffSum");  
   
-  val similarity = mutableListOf<Int>();
-  for(i in 0..(list1.size - 1)) {
+  // loop to get similarity
+  val similarity = Array<Int>(length) { 0 };
+  similarity.forEachIndexed { i, item ->
     val count = list2.count { it == list1[i] }
-    similarity.add(list1[i] * count);
+    similarity[i] = list1[i] * count;
   }
   
+  // p2 sum of similarity
   val simSum = similarity.sum();
   println("List similarity sum: $simSum");
+
 }
+
