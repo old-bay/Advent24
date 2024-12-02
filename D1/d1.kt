@@ -1,5 +1,5 @@
 // Old Bay
-// Advet24
+// Advent24
 // Day 1
 
 import java.io.File;
