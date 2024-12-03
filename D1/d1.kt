@@ -7,6 +7,8 @@ import kotlin.math.abs;
 
 fun main() {
   
+  println("Advent24 Day 1");
+
   // static file input, may be replaced with a prompt
   val input = "input.txt";
 
