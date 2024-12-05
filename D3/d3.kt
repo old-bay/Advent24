@@ -24,10 +24,12 @@ fun main() {
 
 }
 
+// mathing all mul(X,Y) and geting array of products
 fun extractProducts(text: String): Array<Int> {
 
   val regex = Regex("mul\\(\\d+\\,\\d+\\)");
 
+  // uses static array for all after initial string gathering
   val matches = regex.findAll(text);
   val matchList = matches.map { it.value }.toList();
   val list = Array(matchList.size) {0};
@@ -43,6 +45,7 @@ fun extractProducts(text: String): Array<Int> {
   return list;
 }
 
+// function for dos and donts
 fun extractProductsDnD(text: String): MutableList<Int> {
 
   val regex = Regex("mul\\(\\d+\\,\\d+\\)|do\\(\\)|don't\\(\\)");
@@ -57,6 +60,7 @@ fun extractProductsDnD(text: String): MutableList<Int> {
   var goAhead = true;
   matchList.forEachIndexed { i, match ->
 
+    // conditionally adds to a list if after a do, before a dont
     if(match.equals("don't()")) {
       goAhead = false;
     } else if(match.equals("do()")) {
