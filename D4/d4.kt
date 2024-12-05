@@ -22,8 +22,8 @@ fun xmasCount(data: MutableList<String>): Int {
   var count = 0;
   for(y in data.indices) {
     for(x in data[y].indices) {
-      for(dy in -1..1) {
-        for(dx in -1..1) {
+      for(dy in -1..1) { // thx cookie
+        for(dx in -1..1) { // I mean it
           if(dy != 0 || dx != 0) {
             val newY = y + 3 * dy;
             val newX = x + 3 * dx;
