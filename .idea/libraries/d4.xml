@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="d4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/D4/d4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
